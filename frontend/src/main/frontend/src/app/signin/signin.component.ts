@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-
-import { User } from './user';
+import { User } from '../_models/user';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'signin',
@@ -9,8 +9,15 @@ import { User } from './user';
 export class SigninComponent {
   @Input() user: User;
 
-  constructor(){
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+  ) {
     this.user = new User();
     this.user.email = "cshi@adaptive";
   }
+
+  signin() {
+    this.router.navigate(['/home']);
+  }
+
 }

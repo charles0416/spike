@@ -4,19 +4,26 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { SigninComponent } from './signin.component';
+import { SigninComponent } from './signin/signin.component';
+import { RegisterComponent } from './signin/register.component';
+import { HomeComponent } from './home/index';
+import { routing } from './app.routing';
+import { AuthGuard } from './_guards/auth.guard';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SigninComponent
+    SigninComponent,
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
