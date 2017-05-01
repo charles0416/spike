@@ -4,7 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'signin',
-  templateUrl: './signin.component.html'
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.css']
 })
 export class SigninComponent {
   @Input() user: User;
