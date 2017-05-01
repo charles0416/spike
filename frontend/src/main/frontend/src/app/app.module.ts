@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { SigninComponent } from './signin/signin.component';
 import { RegisterComponent } from './signin/register.component';
 import { HomeComponent } from './home/index';
+import { NavigationBarComponent} from './navigation/navbar.component';
 import { routing } from './app.routing';
 import { AuthGuard } from './_guards/auth.guard';
 
@@ -15,7 +16,8 @@ import { AuthGuard } from './_guards/auth.guard';
     AppComponent,
     SigninComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    NavigationBarComponent
   ],
   imports: [
     BrowserModule,

@@ -1,27 +1,31 @@
-<form>
-    <div class="form-group">
-        <label for="userName">User Name</label>
-        <input type="text" class="form-control" id="userName" placeholder="Username">
-        <small id="Username" class="form-text text-muted">Your nick name in the app.</small>
-    </div>
-    <div class="form-group">
-        <label for="password1">Password</label>
-        <input type="password" class="form-control" id="password1" placeholder="Password">
-    </div>
-    <div class="form-group">
-        <label for="password2">Repeat Password</label>
-        <input type="password" class="form-control" id="password2" placeholder="Password">
-    </div>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="submit">
-    </div>
-</form>
+<div class='container'>
+    <form>
+        <div class="form-group">
+            <label for="userName">User Name</label>
+            <input type="text" class="form-control" id="userName" placeholder="Choose a username">
+            <small class="form-text text-muted">Your nick name in the app.</small>
+        </div>
+        <div class="form-group">
+            <label for="password1">Password</label>
+            <input type="password" class="form-control" id="password1" placeholder="Input a password">
+             <small class="form-text text-muted">Minimum 6 characters, includes at leatst 1 number and 1 alphebet.</small>
+       </div>
+        <div class="form-group">
+            <label for="password2">Repeat Password</label>
+            <input type="password" class="form-control" id="password2" placeholder="Repeat the password">
+            <small class="form-text text-muted">Repeat the password.</small>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">A valid email to verify your account or retrive the password.</small>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-primary" value="submit">
+            <a [routerLink]="['/signin']">Signin</a>
+        </div>
+    </form>
 
-<p>
-    <a [routerLink]="['/signin']">Cancel</a>
-</p>
+    <p>
+    </p>
+</div>
