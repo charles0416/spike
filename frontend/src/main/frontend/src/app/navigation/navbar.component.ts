@@ -5,6 +5,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './navbar.component.html'
 })
 export class NavigationBarComponent {
-  constructor(){
+  showSearchBox: boolean = false;
+  constructor() {
   }
 }
