@@ -1,6 +1,6 @@
 <div class="container">
-    <navbar></navbar>
-    <div class="row no-gutters">
+    <navbar [currentUser]="currentUser" [currentShop]="currentShop" [shops]="shops"></navbar>
+    <div *ngIf="currentShop" class="row no-gutters">
         <div class="col-lg-8">
             <orderlist></orderlist>
         </div>
@@ -12,4 +12,16 @@
             </div>
         </div>
     </div>
-</div> 
+
+    <div *ngIf="!currentShop" class="row no-gutters">
+        <div class="col">
+            <div class="card" >
+                <div class="card-block">
+                    <h4 class="card-title">Welcome</h4>
+                    <p class="card-text"> Hi, I'm your sales helper. Let's start from creating a new shop for you.</p>
+                    <a href="#" class="btn btn-primary">Create a Shop</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

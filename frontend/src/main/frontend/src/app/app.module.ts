@@ -11,6 +11,7 @@ import { RegisterComponent } from './signin/register.component';
 import { HomeComponent } from './home/index';
 import { NavigationBarComponent} from './navigation/navbar.component';
 import { OrderListComponent} from './orders/orderlist.component';
+import { ShopComponent} from './shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { OrderListComponent} from './orders/orderlist.component';
     HomeComponent,
     RegisterComponent,
     NavigationBarComponent,
-    OrderListComponent
+    OrderListComponent,
+    ShopComponent
   ],
   imports: [
     BrowserModule,

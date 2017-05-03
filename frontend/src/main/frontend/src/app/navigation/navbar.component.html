@@ -1,16 +1,26 @@
-<div class="row  navbar-light bg-faded">
-    <div class="col-6 col-sm-6 col-md-8">
-        <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+<div class="row navbar-light bg-faded">
+    <div class="col-2 col-sm-4 col-md-3 col-lg-2 text-nowrap align-self-center">
+        <div class="dropdown text-nowrap">
+            <i class="material-icons align-middle">store</i>
+            <a class="dropdown-toggle " href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">{{currentShop.name}}</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <div *ngFor="let shop of shops" class="text-nowrap">
+                    <div><a class="dropdown-item" href="#"><i class="material-icons align-middle">store</i>{{shop.name}}</a></div>
+                </div>
+                <hr/>
+                <div><a class="dropdown-item" href="#"><i class="material-icons align-middle">add</i>Create a new shop</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4 col-sm-4 col-md-6 col-lg-8">
+        <nav *ngIf="currentShop" class="navbar navbar-toggleable-md navbar-light bg-faded">
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span>
   </button>
-            <a class="navbar-brand" href="#">Logo</a>
+    <a class="nav-link" href="#"><i class="material-icons">home</i></a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Orders</a>
                     </li>
@@ -19,7 +29,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Customers</a>
-                    </li> 
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Reports</a>
                     </li>
@@ -31,17 +41,15 @@
             </div>
         </nav>
     </div>
-    <div class="col-2 col-sm-2 col-md-2 card-block text-nowrap pr-10 text-right">
-        <i class="material-icons align-middle">help_outline</i> <a [routerLink]="['/help']">Help</a>
-    </div>
-    <div class="col-4 col-sm-4 col-md-2 card-block text-nowrap pr-10">
+    <div class="col-2 col-sm-4 col-md-3 col-lg-2 align-self-center text-nowrap ">
         <div>
-            <div class="dropdown show">
+            <div class="dropdown">
                 <i class="material-icons align-middle">face</i>
-                <a class="dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Charles Shi</a>
+                <a class="dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Charles Shi</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <div><a class="dropdown-item" href="#"><i class="material-icons align-middle">settings</i>Settings</a></div>
+                    <div><a class="dropdown-item" [routerLink]="['/help']"><i class="material-icons align-middle">help_outline</i>Help</a></div>
+                    <hr/>
                     <div><a class="dropdown-item" [routerLink]="['/signout']" href="#"><i class="material-icons align-middle">exit_to_app</i>Exit</a></div>
                 </div>
             </div>
