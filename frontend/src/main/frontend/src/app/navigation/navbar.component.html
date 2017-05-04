@@ -6,10 +6,10 @@
                 aria-expanded="false">{{currentShop.name}}</a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <div *ngFor="let shop of shops" class="text-nowrap">
-                    <div><a class="dropdown-item" href="#"><i class="material-icons align-middle">store</i>{{shop.name}}</a></div>
+                    <div><a class="dropdown-item"  [routerLink]="[{ outlets: { main: ['dashboard'] } }]"><i class="material-icons align-middle">store</i>{{shop.name}}</a></div>
                 </div>
                 <hr/>
-                <div><a class="dropdown-item" href="#"><i class="material-icons align-middle">add</i>Create a new shop</a></div>
+                <div><a class="dropdown-item" [routerLink]="[{ outlets: { main: ['shop'] } }]"><i class="material-icons align-middle">add</i>Create a new shop</a></div>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@
                 <i class="material-icons align-middle">face</i>
                 <a class="dropdown-toggle" href="https://example.com" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Charles Shi</a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <div><a class="dropdown-item" href="#"><i class="material-icons align-middle">settings</i>Settings</a></div>
+                    <div><a class="dropdown-item" [routerLink]="[{ outlets: { main: ['settings'] } }]"><i class="material-icons align-middle">settings</i>Settings</a></div>
                     <div><a class="dropdown-item" [routerLink]="['/help']"><i class="material-icons align-middle">help_outline</i>Help</a></div>
                     <hr/>
                     <div><a class="dropdown-item" [routerLink]="['/signout']" href="#"><i class="material-icons align-middle">exit_to_app</i>Exit</a></div>

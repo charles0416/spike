@@ -14,6 +14,8 @@ import { OrdersComponent } from './orders/orders.component';
 import { ShopComponent } from './shop/shop.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomersComponent } from './customers/customers.component';
+import { SettingsComponent } from './settings/settings.component';
+import { HelpComponent } from './help/help.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { CustomersComponent } from './customers/customers.component';
     OrdersComponent,
     ShopComponent,
     DashboardComponent,
-    CustomersComponent
+    CustomersComponent,
+    SettingsComponent,
+    HelpComponent
   ],
   imports: [
     BrowserModule,
