@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { User } from '../_models/user';
 import { Shop } from '../_models/shop'
@@ -6,11 +7,16 @@ import { Shop } from '../_models/shop'
   selector: 'home',
   templateUrl: './home.component.html'
 })
-export class HomeComponent {
-  currentUser : User;
-  currentShop : Shop;
+export class HomeComponent implements OnInit {
+  ngOnInit(): void {
+    //this.router.navigate(['/home(main:dashboard)']);
+  }
+
+  currentUser: User;
+  currentShop: Shop;
   shops: Shop[] = [];
-  constructor() {
+  constructor(private route: ActivatedRoute,
+    private router: Router) {
     this.currentUser = new User();
     this.currentUser.fullName = "Lisa Guo";
     let tempShop = new Shop();

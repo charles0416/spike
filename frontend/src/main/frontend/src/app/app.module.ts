@@ -9,9 +9,11 @@ import { AuthGuard } from './_guards/auth.guard';
 import { SigninComponent } from './signin/signin.component';
 import { RegisterComponent } from './signin/register.component';
 import { HomeComponent } from './home/index';
-import { NavigationBarComponent} from './navigation/navbar.component';
-import { OrderListComponent} from './orders/orderlist.component';
-import { ShopComponent} from './shop/shop.component';
+import { NavigationBarComponent } from './navigation/navbar.component';
+import { OrdersComponent } from './orders/orders.component';
+import { ShopComponent } from './shop/shop.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CustomersComponent } from './customers/customers.component';
 
 @NgModule({
   declarations: [
@@ -20,8 +22,10 @@ import { ShopComponent} from './shop/shop.component';
     HomeComponent,
     RegisterComponent,
     NavigationBarComponent,
-    OrderListComponent,
-    ShopComponent
+    OrdersComponent,
+    ShopComponent,
+    DashboardComponent,
+    CustomersComponent
   ],
   imports: [
     BrowserModule,

@@ -8,5 +8,5 @@ import { User} from './_models/user'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works11112222!';
+  title = 'Sales Helper 2';
 }

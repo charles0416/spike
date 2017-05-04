@@ -3,10 +3,10 @@ import { Component, Input } from '@angular/core';
 import { Order } from '../_models/order';
 
 @Component({
-    selector: 'orderlist',
-    templateUrl: './orderlist.component.html'
+    selector: 'orders',
+    templateUrl: './orders.component.html'
 })
-export class OrderListComponent {
+export class OrdersComponent {
     orders: Order[];
     constructor() {
         this.orders = [];
