@@ -16,6 +16,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CustomersComponent } from './customers/customers.component';
 import { SettingsComponent } from './settings/settings.component';
 import { HelpComponent } from './help/help.component';
+import { UserService } from './_services/user.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,10 @@ import { HelpComponent } from './help/help.component';
     HttpModule,
     routing
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

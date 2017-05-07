@@ -5,6 +5,9 @@
         <h2 class="form-signin-heading">Please sign in</h2>
       </div>
     </div>
+    <div *ngIf="alertMessage" class="row">
+      {{alertMessage}}
+    </div>
     <div class="row">
       <div class="col">
         <label for="inputEmail" class="sr-only">Email address</label>
