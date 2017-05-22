@@ -8,7 +8,10 @@ export class UserService {
     };
 
     signIn(userOrEmail: string, password: string): User {
-        return null;
+        let user: User = new User(); 
+        user.email = userOrEmail;
+        user.password = password;
+        return user;
     }
 
     signOut(username: string): void {

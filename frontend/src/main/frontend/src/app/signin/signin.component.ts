@@ -23,7 +23,7 @@ export class SigninComponent {
     }
   }
 
-  signInUser(): void {
+  signin(): void {
     //TODO: verify inputs
     console.log('login email = ' + this.user.email);
     window.localStorage.removeItem('CURRENT_USER');
