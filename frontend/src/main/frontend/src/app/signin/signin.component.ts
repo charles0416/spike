@@ -10,6 +10,7 @@ import { UserService } from '../_services/user.service';
 })
 export class SigninComponent {
   @Input() user: User;
+  @Input() rememberUser: boolean;
   alertMessage: string;
 
   constructor(private route: ActivatedRoute,
@@ -21,12 +22,22 @@ export class SigninComponent {
     } else {
       this.user = new User();
     }
+
+    if (window.localStorage.getItem("REMEMBER_USER") != null) {
+      this.rememberUser = window.localStorage.getItem("REMEMBER_USER") == 'TRUE';
+    } else {
+      this.rememberUser = false;
+    }
   }
 
-  signin(): void {
+  onSubmit(): void {
     //TODO: verify inputs
-    console.log('login email = ' + this.user.email);
     window.localStorage.removeItem('CURRENT_USER');
+    window.localStorage.removeItem('REMEMBER_USER');
+    if (this.rememberUser) {
+      window.localStorage.setItem("REMEMBER_USER", "TRUE");
+    }
+
     let u = this.userService.signIn(this.user.email, this.user.password);
     if (u == null) {
       this.alertMessage = 'Signin error, please try again';
@@ -36,5 +47,4 @@ export class SigninComponent {
       this.router.navigate(['/home']);
     }
   }
-
 }
