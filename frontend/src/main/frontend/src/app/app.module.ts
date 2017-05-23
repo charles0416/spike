@@ -17,6 +17,9 @@ import { CustomersComponent } from './customers/customers.component';
 import { SettingsComponent } from './settings/settings.component';
 import { HelpComponent } from './help/help.component';
 import { UserService } from './_services/user.service';
+import { fakeBackendProvider } from './_helpers/index';
+import { MockBackend, MockConnection } from '@angular/http/testing';
+import { BaseRequestOptions } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { UserService } from './_services/user.service';
   ],
   providers: [
     AuthGuard,
-    UserService
+    UserService,
+    fakeBackendProvider,
+    MockBackend,
+    BaseRequestOptions
   ],
   bootstrap: [AppComponent]
 })

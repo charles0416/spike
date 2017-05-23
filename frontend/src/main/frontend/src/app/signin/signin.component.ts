@@ -3,6 +3,7 @@ import { User } from '../_models/user';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../_services/user.service';
 
+
 @Component({
   selector: 'signin',
   templateUrl: './signin.component.html',
@@ -12,10 +13,12 @@ export class SigninComponent {
   @Input() user: User;
   @Input() rememberUser: boolean;
   alertMessage: string;
+  loading: boolean = false;
+  returnUrl: String;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
   ) {
     if (window.localStorage.getItem("CURRENT_USER") != null) {
       this.user = JSON.parse(window.localStorage.getItem("CURRENT_USER"));
@@ -38,13 +41,16 @@ export class SigninComponent {
       window.localStorage.setItem("REMEMBER_USER", "TRUE");
     }
 
-    let u = this.userService.signIn(this.user.email, this.user.password);
-    if (u == null) {
-      this.alertMessage = 'Signin error, please try again';
-    } else {
-      this.user = u;
-      window.localStorage.setItem('CURRENT_USER', JSON.stringify(this.user));
-      this.router.navigate(['/home']);
-    }
+    this.loading = true;
+    this.userService.signIn(this.user.email, this.user.password)
+      .subscribe(
+      data => {
+        this.router.navigate(['/home']);
+      },
+      error => {
+        // this.alertService.error(error);
+        this.alertMessage = 'Signin error, please try again';
+        this.loading = false;
+      });
   }
 }
