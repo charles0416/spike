@@ -25,7 +25,7 @@ export class UserService {
             });
     }
 
-    signOut(username: string): void {
+    signOut(): void {
         localStorage.removeItem('CURRENT_USER');
     }
 }

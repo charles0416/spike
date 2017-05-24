@@ -17,8 +17,7 @@ export class HomeComponent implements OnInit {
   shops: Shop[] = [];
   constructor(private route: ActivatedRoute,
     private router: Router) {
-    this.currentUser = new User();
-    this.currentUser.fullName = "Lisa Guo";
+    this.currentUser = JSON.parse(localStorage.getItem("CURRENT_USER"));
     let tempShop = new Shop();
     tempShop.id = 1;
     tempShop.name = 'Lisa\'s little shop';

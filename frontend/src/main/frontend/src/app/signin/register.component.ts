@@ -6,9 +6,14 @@ import { User } from '../_models/user';
     templateUrl: './register.component.html'
 })
 export class RegisterComponent {
-    @Input() newUser: User;
+    @Input() user: User;
+    repeatPassword: String = "";
 
-    constructor(){
+    constructor() {
+        this.user = new User();
+    }
+
+    onSubmit(): void {
 
     }
 }

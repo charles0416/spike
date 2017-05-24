@@ -34,8 +34,6 @@ export class SigninComponent {
   }
 
   onSubmit(): void {
-    //TODO: verify inputs
-    window.localStorage.removeItem('CURRENT_USER');
     window.localStorage.removeItem('REMEMBER_USER');
     if (this.rememberUser) {
       window.localStorage.setItem("REMEMBER_USER", "TRUE");

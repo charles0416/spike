@@ -2,8 +2,7 @@
   <form (ngSubmit)="onSubmit()" class="form-signin" #f="ngForm">
     <div class="row">
       <div class="col">
-        <h3 class="form-signin-heading">Welcome to Sales Helper</h3>
-        <h4 class="form-signin-heading">Please sign in</h4>
+        <h4 class="form-signin-heading">Sign in</h4>
       </div>
     </div>
     <div *ngIf="alertMessage" class="row">
@@ -32,7 +31,7 @@
     </div>
     <div class="row ">
       <div class="col justify-content-center">
-        <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="password.invalid || email.invalid" >Sign in</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="f.invalid" >Sign in</button>
       </div>
     </div>
     <div class="row">

@@ -4,8 +4,10 @@ import { User } from '../_models/user';
 
 export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOptions, realBackend: XHRBackend) {
     // array in local storage for registered users
-    let tempUsers = [{ email: 'charles.qld@gmail.com', id: 1, fullName: "Charles Shi", password: '1234' }];
-    localStorage.setItem('users', JSON.stringify(tempUsers));
+    localStorage.setItem('users', JSON.stringify([
+        { email: 'charles.qld@gmail.com', id: 1, firstName: "Shi", givenName: "Charles", password: '1234' },
+        { email: 'yingsaguo@hotmail.com', id: 2, firstName: "Guo", givenName: "Lisa", password: '1234' }
+    ]));
 
     let users: any[] = JSON.parse(localStorage.getItem('users')) || [];
 
@@ -32,7 +34,8 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
                         body: {
                             id: user.id,
                             email: user.email,
-                            fullName: user.fullName,
+                            surname: user.surname,
+                            givenName : user.givenName,
                             token: 'fake-jwt-token'
                         }
                     })));
