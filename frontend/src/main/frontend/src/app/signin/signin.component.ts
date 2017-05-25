@@ -18,7 +18,7 @@ export class SigninComponent {
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService,
+    private userService: UserService
   ) {
     if (window.localStorage.getItem("CURRENT_USER") != null) {
       this.user = JSON.parse(window.localStorage.getItem("CURRENT_USER"));

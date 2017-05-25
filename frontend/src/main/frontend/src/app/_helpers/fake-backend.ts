@@ -86,9 +86,9 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
                 let newUser = JSON.parse(connection.request.getBody());
 
                 // validation
-                let duplicateUser = users.filter(user => { return user.username === newUser.username; }).length;
+                let duplicateUser = users.filter(user => { return user.email === newUser.email; }).length;
                 if (duplicateUser) {
-                    return connection.mockError(new Error('Username "' + newUser.username + '" is already taken'));
+                    return connection.mockError(new Error('Email "' + newUser.email + '" is already registerred.'));
                 }
 
                 // save new user
@@ -97,7 +97,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
                 localStorage.setItem('users', JSON.stringify(users));
 
                 // respond 200 OK
-                connection.mockRespond(new Response(new ResponseOptions({ status: 200 })));
+                connection.mockRespond(new Response(new ResponseOptions({ status: 200,  body: newUser })));
 
                 return;
             }

@@ -9,8 +9,8 @@ export class UserService {
 
     }
 
-    registerUser(user: User): User {
-        return null;
+    create(user: User) {
+        return this.http.post('/api/users', JSON.stringify(user)).map((response: Response) => response.json());
     };
 
     signIn(email: string, password: string) {
