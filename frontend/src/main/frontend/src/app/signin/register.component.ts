@@ -25,7 +25,8 @@ export class RegisterComponent {
         this.loading = true;
         this.userService.create(this.user).subscribe(
             data => {
-                this.router.navigate(['/home']);
+                localStorage.setItem('CURRENT_USER', JSON.stringify(data));
+                this.router.navigate(['/signin']);
                 this.loading = false;
             },
             error => {
