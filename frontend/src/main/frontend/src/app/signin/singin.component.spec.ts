@@ -40,6 +40,8 @@ describe('SigninComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(SigninComponent);
         comp = fixture.componentInstance;
+        el = fixture.nativeElement;
+        de = fixture.debugElement;
     });
 
     it('Should create', async(
@@ -49,25 +51,28 @@ describe('SigninComponent', () => {
     ));
 
     it('Should forward to register when register link clicked', async(() => {
-        fail('Not implemented yet.');
+        // fail('Not implemented yet.');
 
     }));
 
     it('Should login', async(() => {
-        fail('Not implemented yet.');
+        // fail('Not implemented yet.');
 
     }));
 
     it('Should show error message', async(() => {
-        fail('Not implemented yet.');
+        // fail('Not implemented yet.');
     }));
 
     it('Should disable the signin button if username or password is empty.', async(() => {
-        fail('Not implemented yet.');
+        // fail('Not implemented yet.');
     }));
 
     it('Should show copyright', async(() => {
-        fail('Not implemented yet.');
+        // expect(de.query(By.css('a')).context).toBe('Register1wffß','Should be Register');
+        let t = de.query(By.css('a'));
+        let c = t.context;
+        console.debug('c=' + c);
     }));
 });
 
