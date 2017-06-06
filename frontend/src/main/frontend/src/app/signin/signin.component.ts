@@ -46,7 +46,6 @@ export class SigninComponent {
         this.router.navigate(['/home']);
       },
       error => {
-        // this.alertService.error(error);
         this.alertMessage = 'Signin error, please try again';
         this.loading = false;
       });
