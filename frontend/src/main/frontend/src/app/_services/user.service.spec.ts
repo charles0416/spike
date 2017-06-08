@@ -1,10 +1,11 @@
 import { async, ComponentFixture, TestBed, getTestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { UserService } from '../_services/user.service';
-import { HttpModule, Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, XHRBackend, RequestOptions } from '@angular/http';
+import { ResponseType, Request, HttpModule, Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, XHRBackend, RequestOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { FormsModule } from '@angular/forms';
 import { User } from '../_models/User';
+import { } from '@angular/http';
 
 describe('user.service', () => {
     beforeEach(async(() => {
@@ -107,6 +108,29 @@ describe('user.service', () => {
 
     it('Should got a wrong password error', async(
         () => {
+            let userService: UserService = getTestBed().get(UserService);
+            let mockBackend = getTestBed().get(MockBackend) as MockBackend;
+            mockBackend.connections.subscribe(
+                (connection: MockConnection) => {
+                    connection.mockError(new MockError(
+                        new ResponseOptions({
+                            type: ResponseType.Error,
+                            status: 401,
+                            body: JSON.stringify({ error: "Invalid user or password." })
+                        }
+                        )));
+                });
+
+            let email = "charles@abc.com";
+            let password = "abcd1234";
+            userService.signIn(email, password).subscribe(
+                data => {
+                    fail("Should get an signin error instead of success.");
+                }, error => {
+                    expect(error.status).toEqual(401);
+                    expect(error).toBeDefined("Should have some error message");
+                }
+            );
         }
     ));
 
@@ -118,3 +142,8 @@ describe('user.service', () => {
     );
 
 });
+
+class MockError extends Response implements Error {
+    name: any
+    message: any
+}

@@ -33,7 +33,6 @@ export class RegisterComponent {
                 // this.alertService.error(error);
                 this.alertMessage = 'Register error, please try again';
                 this.loading = false;
-            }, 
-            () => { });
+            });
     }
 }
