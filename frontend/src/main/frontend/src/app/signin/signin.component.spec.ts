@@ -106,7 +106,7 @@ describe('SigninComponent', () => {
         comp.user.password = "abcd";
         fixture.detectChanges();
         submitBtn = de.query(By.css('[type=submit]')).nativeElement;
-        expect(!submitBtn['disabled']).toBeTruthy('The submit button should be enabled if the email is empty');
+        expect(!submitBtn['disabled']).toBeTruthy('The submit button should be enabled.');
     }));
 });
 
