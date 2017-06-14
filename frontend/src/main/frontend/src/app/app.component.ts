@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User} from './_models/user'
+import { User } from './_models/user'
 
 
 @Component({

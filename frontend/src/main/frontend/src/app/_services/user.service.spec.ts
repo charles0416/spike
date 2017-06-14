@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed, getTestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
-import { UserService } from '../_services/user.service';
 import { ResponseType, Request, HttpModule, Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, XHRBackend, RequestOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { FormsModule } from '@angular/forms';
-import { User } from '../_models/User';
-import { } from '@angular/http';
+
+import { UserService } from '../_services/index';
+import { User } from '../_models/index';
 
 describe('user.service', () => {
     beforeEach(async(() => {

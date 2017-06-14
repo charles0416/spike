@@ -1,14 +1,13 @@
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/index';
-import { SigninComponent } from './signin/signin.component';
-import { RegisterComponent } from './signin/register.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { OrdersComponent } from './orders/orders.component';
-import { CustomersComponent } from './customers/customers.component';
-import { ShopComponent } from './shop/shop.component';
-import { HelpComponent } from './help/help.component';
-import { SettingsComponent } from './settings/settings.component';
+import { SigninComponent, RegisterComponent } from './signin/index';
+import { DashboardComponent } from './dashboard/index';
+import { OrdersComponent } from './orders/index';
+import { CustomersComponent } from './customers/index';
+import { ShopComponent } from './shop/index';
+import { HelpComponent } from './help/index';
+import { SettingsComponent } from './settings/index';
 import { AuthGuard } from './_guards/auth.guard';
 
 const appRoutes: Routes = [

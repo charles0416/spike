@@ -1,12 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { User } from '../_models/user';
-import { Shop } from '../_models/shop'
+import { User, Shop } from '../_models/index';
+
 @Component({
   selector: 'home',
   templateUrl: './home.component.html'
 })
+
 export class HomeComponent implements OnInit {
   ngOnInit(): void {
     //this.router.navigate(['/home(main:dashboard)']);

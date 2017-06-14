@@ -1,15 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { FormControl, ReactiveFormsModule, NgForm, NgModel } from '@angular/forms';
 import { RouterModule, Routes, Router } from '@angular/router';
-import { RouterLinkStubDirective } from '../../testing/router-stubs';
+import { By } from '@angular/platform-browser';
+import { FormControl, ReactiveFormsModule, NgForm, NgModel } from '@angular/forms';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-
-import { RegisterComponent } from './register.component';
-import { UserService } from '../_services/user.service';
-import { User } from '../_models/user';
 import { Observable } from 'rxjs';
+
+import { RouterLinkStubDirective } from '../../testing/router-stubs';
+import { RegisterComponent } from './register.component';
+import { UserService } from '../_services/index';
+import { User } from '../_models/index';
 
 describe('RegisterComponent', () => {
     let comp: RegisterComponent;

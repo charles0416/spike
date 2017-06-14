@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
-import { User } from '../_models/user';
 import { Router, ActivatedRoute } from '@angular/router';
-import { UserService } from '../_services/user.service';
 
+import { UserService } from '../_services/index';
+import { User } from '../_models/index';
 
 @Component({
   selector: 'signin',

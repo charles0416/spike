@@ -35,7 +35,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
                             id: user.id,
                             email: user.email,
                             surname: user.surname,
-                            givenName : user.givenName,
+                            givenName: user.givenName,
                             token: 'fake-jwt-token'
                         }
                     })));
@@ -97,7 +97,7 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
                 localStorage.setItem('users', JSON.stringify(users));
 
                 // respond 200 OK
-                connection.mockRespond(new Response(new ResponseOptions({ status: 200,  body: newUser })));
+                connection.mockRespond(new Response(new ResponseOptions({ status: 200, body: newUser })));
 
                 return;
             }

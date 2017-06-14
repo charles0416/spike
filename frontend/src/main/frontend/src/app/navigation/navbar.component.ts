@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Shop } from '../_models/shop';
-import { User } from '../_models/user';
+import { Shop, User } from '../_models/index';
 
 @Component({
   selector: 'navbar',

@@ -24,7 +24,7 @@
                 [(ngModel)]="user.password" #password1="ngModel">
             <small class="form-text text-muted">Password must be between 4 and 8 digits long and include at least one numeric digit.</small>
         </div>
-        <div class="form-group" >
+        <div class="form-group">
             <label for="password2" class="font-weight-bold">Repeat Password</label>
             <div *ngIf="password2.dirty && user.password != repeatPassword" class="alert">Passwords are not match.</div>
             <input type="password" pattern="(?=.*\d).{4,8}$" class="form-control" name="password2" placeholder="Input a password" required

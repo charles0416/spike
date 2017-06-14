@@ -1,4 +1,4 @@
-export class Shop{
+export class Shop {
     id: number;
     name: string;
     uuid: string;

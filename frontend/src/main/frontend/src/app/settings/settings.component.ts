@@ -4,6 +4,7 @@ import {Component, Input} from '@angular/core';
     selector : 'settings',
     templateUrl : './settings.component.html'
 })
+
 export class SettingsComponent {
 
 }

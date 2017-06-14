@@ -5,11 +5,11 @@ import { FormControl, ReactiveFormsModule, NgForm, NgModel } from '@angular/form
 import { RouterModule, Routes, Router } from '@angular/router';
 import { RouterLinkStubDirective } from '../../testing/router-stubs';
 import { RouterTestingModule } from '@angular/router/testing';
+import { Observable } from 'rxjs';
 
 import { SigninComponent } from './signin.component';
-import { UserService } from '../_services/user.service';
-import { User } from '../_models/user';
-import { Observable } from 'rxjs';
+import { UserService } from '../_services/index';
+import { User } from '../_models/index';
 
 describe('SigninComponent', () => {
     let comp: SigninComponent;

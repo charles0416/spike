@@ -9,7 +9,6 @@ export class ShopComponent {
     constructor(private route: ActivatedRoute,
         private router: Router) { }
     createShop() {
-        //console.log("Create shop event triggered.");
     }
 
     cancelClicked(event) {
