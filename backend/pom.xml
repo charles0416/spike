@@ -32,13 +32,21 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
-        <dependency>
-            <groupId>com.eeee.spike</groupId>
-            <artifactId>frontend</artifactId>
-            <version>${project.version}</version>
-            <scope>runtime</scope>
-        </dependency>
+
+		<dependency>
+			<groupId>com.eeee.spike</groupId>
+			<artifactId>frontend</artifactId>
+			<version>${project.version}</version>
+			<scope>runtime</scope>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.eeee.spike</groupId>
+			<artifactId>model</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
