@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { UserService } from '../_services/index';
+import { UserService, AlertService } from '../_services/index';
 import { User } from '../_models/index';
 
 @Component({
@@ -12,13 +12,13 @@ import { User } from '../_models/index';
 export class SigninComponent {
   @Input() user: User;
   @Input() rememberUser: boolean;
-  alertMessage: string;
   loading: boolean = false;
   returnUrl: String;
 
   constructor(private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService
+    private userService: UserService,
+    private alertService: AlertService
   ) {
     if (window.localStorage.getItem("CURRENT_USER") != null) {
       this.user = JSON.parse(window.localStorage.getItem("CURRENT_USER"));
@@ -46,7 +46,7 @@ export class SigninComponent {
         this.router.navigate(['/home']);
       },
       error => {
-        this.alertMessage = 'Signin error, please try again';
+        this.alertService.error(error.json() && error.json().message);
         this.loading = false;
       });
   }

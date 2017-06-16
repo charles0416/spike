@@ -17,7 +17,8 @@ import { DashboardComponent } from './dashboard/index';
 import { CustomersComponent } from './customers/index';
 import { SettingsComponent } from './settings/index';
 import { HelpComponent } from './help/index';
-import { UserService } from './_services/index';
+import { UserService, AlertService } from './_services/index';
+import { AlertComponent } from './_directives/index';
 import { fakeBackendProvider } from './_helpers/index';
 
 
@@ -33,7 +34,8 @@ import { fakeBackendProvider } from './_helpers/index';
     DashboardComponent,
     CustomersComponent,
     SettingsComponent,
-    HelpComponent
+    HelpComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
@@ -44,9 +46,10 @@ import { fakeBackendProvider } from './_helpers/index';
   providers: [
     AuthGuard,
     UserService,
-    fakeBackendProvider,
+   // fakeBackendProvider,
     MockBackend,
-    BaseRequestOptions
+    BaseRequestOptions,
+    AlertService
   ],
   bootstrap: [AppComponent]
 })

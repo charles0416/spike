@@ -8,9 +8,7 @@
         <h4 class="form-signin-heading">Sign in</h4>
       </div>
     </div>
-    <div *ngIf="alertMessage" class="row">
-      {{alertMessage}}
-    </div>
+     <alert></alert>
     <div class="row">
       <div class="col">
         <input class="form-control" [(ngModel)]="user.email" name="email" placeholder="Email address" required #email="ngModel" />

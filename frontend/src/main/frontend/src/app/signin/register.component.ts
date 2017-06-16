@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { UserService } from '../_services/index';
+import { UserService, AlertService } from '../_services/index';
 import { User } from '../_models/user';
 
 @Component({
@@ -13,12 +13,11 @@ export class RegisterComponent {
     @Input() user: User;
     repeatPassword: String = "";
     loading: boolean = false;
-    alertMessage: String = null;
 
     constructor(private route: ActivatedRoute,
         private router: Router,
-        private userService: UserService
-    ) {
+        private userService: UserService,
+        private alertService: AlertService) {
         this.user = new User();
     }
 
@@ -31,8 +30,7 @@ export class RegisterComponent {
                 this.loading = false;
             },
             error => {
-                // this.alertService.error(error);
-                this.alertMessage = 'Register error, please try again';
+                this.alertService.error(error.json() && error.json().message);
                 this.loading = false;
             });
     }

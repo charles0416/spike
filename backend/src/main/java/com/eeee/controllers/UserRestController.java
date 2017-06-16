@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by Charles on 15/06/2017.
  */
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/users")
 public class UserRestController {
 
     private UserService userService;

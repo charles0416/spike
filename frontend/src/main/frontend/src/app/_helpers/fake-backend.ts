@@ -1,12 +1,12 @@
-import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, XHRBackend, RequestOptions } from '@angular/http';
+import { Http, BaseRequestOptions, Response, ResponseOptions, RequestMethod, ResponseType, XHRBackend, RequestOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 import { User } from '../_models/user';
 
 export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOptions, realBackend: XHRBackend) {
     // array in local storage for registered users
     localStorage.setItem('users', JSON.stringify([
-        { email: 'charles.qld@gmail.com', id: 1, firstName: "Shi", givenName: "Charles", password: '1234' },
-        { email: 'yingsaguo@hotmail.com', id: 2, firstName: "Guo", givenName: "Lisa", password: '1234' }
+        { email: 'charles.qld@gmail.com', id: 1, firstName: "Shi", givenName: "Charles", password: 'abcd1234' },
+        { email: 'yingsaguo@hotmail.com', id: 2, firstName: "Guo", givenName: "Lisa", password: 'abcd1234' }
     ]));
 
     let users: any[] = JSON.parse(localStorage.getItem('users')) || [];
@@ -41,7 +41,15 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
                     })));
                 } else {
                     // else return 400 bad request
-                    connection.mockError(new Error('Username or password is incorrect'));
+                    connection.mockError(new MockError(new ResponseOptions({
+                        type: ResponseType.Error,
+                        status: 401,
+                        body: JSON.stringify({
+                            url: '/api/authentication',
+                            code: '401',
+                            message: 'Invalid user or password.'
+                        })
+                    })));
                 }
 
                 return;
@@ -54,7 +62,15 @@ export function fakeBackendFactory(backend: MockBackend, options: BaseRequestOpt
                     connection.mockRespond(new Response(new ResponseOptions({ status: 200, body: users })));
                 } else {
                     // return 401 not authorised if token is null or invalid
-                    connection.mockRespond(new Response(new ResponseOptions({ status: 401 })));
+                    connection.mockError(new MockError(new ResponseOptions({
+                        type: ResponseType.Error,
+                        status: 401,
+                        body: JSON.stringify({
+                            url: '/api/authentication',
+                            code: '401',
+                            message: 'Unauthorized.'
+                        })
+                    })));
                 }
 
                 return;
@@ -160,3 +176,8 @@ export let fakeBackendProvider = {
     useFactory: fakeBackendFactory,
     deps: [MockBackend, BaseRequestOptions, XHRBackend]
 };
+
+class MockError extends Response implements Error {
+    name: any
+    message: any
+}

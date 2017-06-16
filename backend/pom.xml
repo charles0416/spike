@@ -34,6 +34,11 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<dependency>
 			<groupId>com.eeee.spike</groupId>
 			<artifactId>frontend</artifactId>
 			<version>${project.version}</version>
@@ -46,6 +51,7 @@
 			<artifactId>model</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+
 
 	</dependencies>
 
