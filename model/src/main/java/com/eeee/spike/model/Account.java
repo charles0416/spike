@@ -8,7 +8,7 @@ import javax.persistence.Id;
  * Created by Charles on 15/06/2017.
  */
 @Entity
-public class User {
+public class Account {
 
     @Id
     @GeneratedValue
@@ -22,14 +22,14 @@ public class User {
 
     private String password;
 
-    public User(String surname, String givenName, String email, String password) {
+    public Account(String surname, String givenName, String email, String password) {
         this.surname = surname;
         this.givenName = givenName;
         this.email = email;
         this.password = password;
     }
 
-    public User() {
+    public Account() {
     }
 
     public Long getId() {

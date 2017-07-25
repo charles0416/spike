@@ -11,12 +11,12 @@ import java.util.Optional;
  * Created by Charles on 15/06/2017.
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class AccountServiceImpl implements AccountService {
 
     private final AccountRepository userRepository;
 
     @Autowired
-    UserServiceImpl(AccountRepository userRepository) {
+    AccountServiceImpl(AccountRepository userRepository) {
         this.userRepository = userRepository;
     }
 

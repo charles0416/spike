@@ -1,8 +1,8 @@
 package com.eeee.controllers;
 
 import com.eeee.exceptions.BadRequestException;
-import com.eeee.services.UserService;
-import com.eeee.spike.model.User;
+import com.eeee.services.AccountService;
+import com.eeee.spike.model.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,17 +13,17 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/users")
 public class UserRestController {
 
-    private UserService userService;
+    private AccountService userService;
 
     @Autowired
-    public UserRestController(UserService userService) {
+    public UserRestController(AccountService userService) {
         this.userService = userService;
     }
 
     @RequestMapping(method = RequestMethod.POST)
     @ResponseBody
-    public User add(@RequestBody User input) {
-        User newUser = null;
+    public Account add(@RequestBody Account input) {
+        Account newUser = null;
         try {
             newUser = userService.add(input);
         } catch (Exception e) {
