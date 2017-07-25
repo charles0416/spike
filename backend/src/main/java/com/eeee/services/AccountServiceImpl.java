@@ -1,9 +1,8 @@
 package com.eeee.services;
 
-import com.eeee.spike.model.User;
-import com.eeee.spike.model.UserRepository;
+import com.eeee.spike.model.Account;
+import com.eeee.spike.model.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -14,20 +13,20 @@ import java.util.Optional;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserRepository userRepository;
+    private final AccountRepository userRepository;
 
     @Autowired
-    UserServiceImpl(UserRepository userRepository) {
+    UserServiceImpl(AccountRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @Override
-    public User add(User user) throws Exception {
+    public Account add(Account user) throws Exception {
         if (user.getEmail() == null) {
             throw new Exception("Cannot add a user without email address.");
         }
 
-        Optional<User> u = userRepository.findByEmail(user.getEmail());
+        Optional<Account> u = userRepository.findByEmail(user.getEmail());
         if (u.isPresent()) {
             throw new Exception("A user with the email '" + user.getEmail() + "' already exists.");
         }
@@ -36,17 +35,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Optional<User> getByEmail(String email) {
+    public Optional<Account> getByEmail(String email) {
         return userRepository.findByEmail(email);
     }
 
     @Override
-    public Optional<User> get(Long id) {
+    public Optional<Account> get(Long id) {
         return Optional.ofNullable(userRepository.getOne(id));
     }
 
     @Override
-    public Optional<User> authenticate(String email, String password) {
+    public Optional<Account> authenticate(String email, String password) {
         if (email == null || password == null) {
             return null;
         }
