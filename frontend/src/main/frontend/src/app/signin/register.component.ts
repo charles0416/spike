@@ -23,7 +23,7 @@ export class RegisterComponent {
 
     onSubmit(): void {
         this.loading = true;
-        this.userService.create(this.user).subscribe(
+        this.userService.register(this.user).subscribe(
             data => {
                 localStorage.setItem('CURRENT_USER', JSON.stringify(data));
                 this.router.navigate(['/signin']);

@@ -11,8 +11,8 @@ export class UserService {
 
     }
 
-    create(user: User) {
-        return this.http.post('/api/users', JSON.stringify(user), this.defaultOptions).map((response: Response) => response.json());
+    register(user: User) {
+        return this.http.post('/api/register', JSON.stringify(user), this.defaultOptions).map((response: Response) => response.json());
     };
 
     signIn(email: string, password: string) {
